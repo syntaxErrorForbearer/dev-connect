@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 // Create UserSchema
 const ProfileSchema = new Schema({
   user: {
-    typed: Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'users'
   },
   handle: {
@@ -33,57 +33,61 @@ const ProfileSchema = new Schema({
     type: String
   },
   experience: [
-    title: {
-      type: String,
-      required: true
-    },
-    company: {
-      type: String,
-      required: true
-    },
-    location: {
-      type: String,
-    },
-    from: {
-      type: String,
-      required: true
-    },
-    to: {
-      type: Date
-    },
-    current: {
-      type: Boolean,
-      default: false
-    },
-    description: {
-      type: String
+    {
+      title: {
+        type: String,
+        required: true
+      },
+      company: {
+        type: String,
+        required: true
+      },
+      location: {
+        type: String,
+      },
+      from: {
+        type: String,
+        required: true
+      },
+      to: {
+        type: Date
+      },
+      current: {
+        type: Boolean,
+        default: false
+      },
+      description: {
+        type: String
+      }
     }
   ],
   education: [
-    school: {
-      type: String,
-      required: true
-    },
-    degree: {
-      type: String,
-      required: true
-    },
-    fieldofstudy: {
-      type: String,
-    },
-    from: {
-      type: String,
-      required: true
-    },
-    to: {
-      type: Date
-    },
-    current: {
-      type: Boolean,
-      default: false
-    },
-    description: {
-      type: String
+    {
+      school: {
+        type: String,
+        required: true
+      },
+      degree: {
+        type: String,
+        required: true
+      },
+      fieldofstudy: {
+        type: String,
+      },
+      from: {
+        type: String,
+        required: true
+      },
+      to: {
+        type: Date
+      },
+      current: {
+        type: Boolean,
+        default: false
+      },
+      description: {
+        type: String
+      }
     }
   ],
   social: {
@@ -102,7 +106,7 @@ const ProfileSchema = new Schema({
     instagram: {
       type: String
     },
-  }
+  },
   date: {
     type: Date,
     default: Date.now
