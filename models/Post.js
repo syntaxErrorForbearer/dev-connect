@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// test comment
+
 // Create Schema
 const PostSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'users',
+    ref: 'users'
   },
   text: {
     type: String,
@@ -21,7 +23,7 @@ const PostSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'users',
+        ref: 'users'
       }
     }
   ],
@@ -29,11 +31,11 @@ const PostSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'users',
+        ref: 'users'
       },
       text: {
         type: String,
-        required: 'true',
+        required: true
       },
       name: {
         type: String
