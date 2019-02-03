@@ -81,7 +81,6 @@ class Register extends React.Component {
                   info="This siteThis site uses Gravatar so if you want a profile image, use a Gravatar email uses Gravatar so if you want a profile image, use a Gravatar email"
                 />
               <TextFieldGroup
-                type="password"
                 placeholder="Password"
                 name="password"
                 type="password"
