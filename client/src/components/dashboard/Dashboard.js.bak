@@ -1,0 +1,55 @@
+dashboardContent;
+
+    if(profile === null || loading){
+      dashboardContent = <Spinner />;
+
+    }else {
+      // Check if logged in user has profile data
+      dashboardContent = Object.keys(profile).legth > 0
+        ? (
+          <div>
+            <p className="lead text-muted">Hallo <Link to={`/profile/${profile.handle}`}></Link> {user.name}</p>
+          </div>
+        )
+        : (
+            <div>
+              <p className="lead text-muted">Hallo {user.name}</p>
+              <p>You havn't set up a profile! Set one up!</p>
+              <Link to='/create-profile' className='btn btn-lg btn-ingo'>
+                Create Profile
+              </Link>
+            </div>
+          )
+    }
+
+
+    return (
+      <div className="dashboard">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1 className="display-4">Dashboard</h1>
+              {dashboardContent}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+};
+
+Dashboard.PropTypes = {
+  getCurrentProfile: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  profile: state.profile,
+  auth: state.auth
+});
+
+
+
+export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);

@@ -80,7 +80,7 @@ class Login extends React.Component {
                   placeholder="Password"
                   name="password"
                   type="password"
-                  value={this.state.onChange}
+                  value={this.state.password}
                   onChange={this.onChange}
                   error={errors.password}
                 />
@@ -97,7 +97,7 @@ class Login extends React.Component {
   }
 }
 
-Login.PropTypes = {
+Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
