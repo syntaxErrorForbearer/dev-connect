@@ -242,7 +242,7 @@ router.delete(
           // Save
           profile.save().then(profile => res.json(profile));
       })
-      .catch(err => res.status(404).json(err,"don't do drugs"));
+      .catch(err => res.status(404).json(err,"dont do drugs"));
   }
 );
 
@@ -269,7 +269,7 @@ router.delete(
           // Save
           profile.save().then(profile => res.json(profile));
       })
-      .catch(err => res.status(404).json(err,"don't do drugs"));
+      .catch(err => res.status(404).json(err,"dont do drugs"));
   }
 );
 
