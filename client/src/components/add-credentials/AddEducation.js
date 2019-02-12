@@ -62,7 +62,6 @@ class AddEducation extends Component {
   render () {
 
     // es6 destructoring
-    // equivalent to: const errors = this.state.errors
     const {errors} = this.state;
 
     return (
