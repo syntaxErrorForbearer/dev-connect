@@ -181,6 +181,7 @@ router.post('/experience', passport.authenticate('jwt', { session: false }), (re
         description: req.body.description
       };
 
+      // Prevent date chosen before current checkbox checked and disabled
       newExp.to = newExp.current ? '' : newExp.to;
 
       // Add to exp array
@@ -204,15 +205,22 @@ router.post('/education', passport.authenticate('jwt', { session: false }), (req
   Profile.findOne( {user: req.user.id } )
     .then(profile => {
 
-      const newEdu= {
+      const newEdu = {
         school: req.body.school,
         degree: req.body.degree,
         fieldofstudy: req.body.fieldofstudy,
         from: req.body.from,
-        to: req.body.from,
+        to: req.body.to,
         current: req.body.current,
         description: req.body.description
       };
+
+      console.log('newEdu: ', newEdu);
+
+      if(newEdu.current){ newEdu.to = '' }
+
+      // Prevent date chosen before current checkbox checked and disabled
+      //newEdu.to = newEdu.current ? '' : newEdu.to;
 
       // Add to exp array
       profile.education.unshift(newEdu);
