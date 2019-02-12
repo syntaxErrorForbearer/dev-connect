@@ -176,10 +176,12 @@ router.post('/experience', passport.authenticate('jwt', { session: false }), (re
         company: req.body.company,
         location: req.body.location,
         from: req.body.from,
-        to: req.body.from,
+        to: req.body.to,
         current: req.body.current,
         description: req.body.description
       };
+
+      newExp.to = newExp.current ? '' : newExp.to;
 
       // Add to exp array
       profile.experience.unshift(newExp);
