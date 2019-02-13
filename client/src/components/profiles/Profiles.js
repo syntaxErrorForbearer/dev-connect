@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import Spinner from '../common/Spinner'
+import ProfileItem from './ProfileItem';
 import {getProfiles} from '../../actions/profileActions'
 
 class Profiles extends React.Component {
@@ -13,7 +14,9 @@ class Profiles extends React.Component {
     // let profileItems;
 
     let profileItems = profiles === null ? <Spinner />
-      : profiles.length > 0 ? <h1>PROFILES HERE</h1>
+  : profiles.length > 0 ? profiles.map(profile => (
+    <ProfileItem key={profile._id} profile={profile} />
+  ))
       : <h4>No profiles found...</h4>
 
     return (
