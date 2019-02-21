@@ -50,6 +50,7 @@ class AddExperience extends Component {
     // console.log("expData.to ", expData.to);
 
     //  // This is a fix from the comments in lecture 59
+    // update* added fix to server side
     // if (expData.to !== "" && this.state.disabled) {
     //   expData.to = this.state.current;
     // this.props.addExperience(expData, this.props.history);
@@ -63,7 +64,6 @@ class AddExperience extends Component {
   }
 
   onCheck(e){
-
 
     this.setState({
       disabled: !this.state.disabled,
