@@ -13,8 +13,9 @@ class Profiles extends React.Component {
     const { profiles, loading } = this.props.profile;
     // let profileItems;
 
-    let profileItems = profiles === null ? <Spinner />
-  : profiles.length > 0 ? profiles.map(profile => (
+    let profileItems = profiles === null || loading
+      ? <Spinner />
+      : profiles.length > 0 ? profiles.map(profile => (
     <ProfileItem key={profile._id} profile={profile} />
   ))
       : <h4>No profiles found...</h4>

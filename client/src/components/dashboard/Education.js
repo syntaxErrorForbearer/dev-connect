@@ -11,7 +11,7 @@ class Education extends React.Component {
   }
 
   render () {
-    console.log("props-education: ", this.props.education);
+    // console.log("props-education: ", this.props.education);
     const education = this.props.education.map(edu => (
       <tr key={edu._id}>
         <td>{edu.school}</td>
