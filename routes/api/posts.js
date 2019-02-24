@@ -204,6 +204,10 @@ router.delete(
                 });
           }
 
+          // improved below code
+          post.comments.filter(item => item._id.toString() !== req.params.comment._id)
+
+          /*
           // Get remove index
           const removeIndex = post.comments
             .map(item => item._id.toString())
@@ -211,6 +215,8 @@ router.delete(
 
           // Splice comment out of array
           post.comments.splice(removeIndex, 1);
+          */
+          console.log(`post inside delete comment ${post}`);
 
           post.save().then(post => res.json(post));
         })
