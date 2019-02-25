@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// test comment
-
 // Create Schema
 const PostSchema = new Schema({
   user: {

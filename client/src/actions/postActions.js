@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
   ADD_POST,
   GET_ERRORS,
+  CLEAR_ERRORS,
   GET_POSTS,
   GET_POST,
   POST_LOADING,
@@ -10,6 +11,7 @@ import {
 
 // Add Post
 export const addPost = postData => dispatch => {
+  dispatch(clearErrors());
   axios
     .post('/api/posts', postData)
     .then(res =>
@@ -28,8 +30,35 @@ export const addPost = postData => dispatch => {
 
 // Add Comment
 export const addComment = (postId, commentData) => dispatch => {
+  dispatch(clearErrors());
+
+  // undefined here
+  console.log(`addComment - commentData: ${commentData}`);
+
   axios
     .post(`/api/posts/comment/${postId}`, commentData)
+    .then(res =>
+      dispatch({
+        type: GET_POST,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+// Delete Comment
+export const deleteComment = (postId, commentId) => dispatch => {
+
+  console.dir(`inside deleteComment postId: ${postId}`);
+  console.dir(`inside deleteComment commentId: ${commentId}`);
+
+  axios
+    .delete(`/api/posts/comment/${postId}/${commentId}`)
     .then(res =>
       dispatch({
         type: GET_POST,
@@ -65,7 +94,7 @@ export const getPosts = () => dispatch => {
 
 // Delete Post
 export const deletePost = id => dispatch => {
-  console.dir(`inside deletePost id: ${id}`);
+  // console.dir(`inside deletePost id: ${id}`);
   // console.log(`inside deletePost id: ${id}`);
   axios
     .delete(`/api/posts/${id}`)
@@ -134,3 +163,6 @@ export const setPostLoading = () => {
     type: POST_LOADING
   }
 }
+
+// Clear errors
+export const clearErrors = () => ({type: CLEAR_ERRORS})

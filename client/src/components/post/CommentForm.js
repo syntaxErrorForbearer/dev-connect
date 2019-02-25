@@ -28,7 +28,11 @@ class CommentForm extends React.Component {
     const {user} = this.props.auth;
     const {postId} = this.props;
 
+    console.log(`inside CommentForm - user: ${user}`);
+    console.log(`inside CommentForm - postId: ${postId}`);
+
     const newComment = {
+      // user: user,
       text: this.state.text,
       name: user.name,
       avatar: user.avatar
@@ -73,7 +77,9 @@ class CommentForm extends React.Component {
 }
 
 CommentForm.propTypes = {
-  addPost: PropTypes.func.isRequired,
+  // Brad had this, but I think it has to be wrong.
+  // addPost: PropTypes.func.isRequired,
+  addComment: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   postId: PropTypes.string.isRequired,
   errors: PropTypes.object.isRequired

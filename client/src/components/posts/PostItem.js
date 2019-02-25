@@ -29,6 +29,12 @@ class PostItem extends React.Component {
   render () {
     const {post, auth, showActions} = this.props;
 
+    (function(obj){
+         for(var key in obj){
+            console.log(`post key: ${key}`);
+         }
+      })(post)
+
     return (
       <div className="card card-body mb-3">
         <div className="row">

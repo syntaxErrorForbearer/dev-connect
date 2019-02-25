@@ -52,8 +52,6 @@ router.post('/', passport.authenticate('jwt', { session: false }),
       return res.status(400).json(errors);
     }
 
-    console.log(`inside addPost - req.user.user: ${req.body.user}`);
-
     const newPost = new Post({
       text: req.body.text,
       name: req.body.name,
@@ -174,12 +172,8 @@ router.post(
             text: req.body.text,
             name: req.body.name,
             avatar: req.body.avatar,
-            // user: req.body.id,
-            user: req.user.id
+            user: req.body.id,
           }
-
-          console.log(`inside addComment - req.user.id: ${req.user.id}`);
-          console.log(`inside addComment - req: ${req}`);
 
           // Add to comments array
           post.comments.unshift(newComment);
