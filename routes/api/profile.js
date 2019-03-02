@@ -215,11 +215,9 @@ router.post('/education', passport.authenticate('jwt', { session: false }), (req
         description: req.body.description
       };
 
-      console.log('newEdu: ', newEdu);
-
       if(newEdu.current){ newEdu.to = '' }
 
-      // Prevent date chosen before current checkbox checked and disabled
+      // Prevent date choice before current checkbox is checked and disabled
       //newEdu.to = newEdu.current ? '' : newEdu.to;
 
       // Add to exp array
@@ -239,7 +237,7 @@ router.delete(
     Profile.findOne( {user: req.user.id } )
       .then(profile => {
         // Get remove index
-        // *** i think filter, rather than map,  would be a better method here
+        // *** i think filter, rather than map,  could be a better method here
         const removeIndex = profile.experience
           .map(item => item.id)
           .indexOf(req.params.exp_id);
@@ -270,8 +268,6 @@ router.delete(
         const removeIndex = profile.education
           .map(item => item.id)
           .indexOf(req.params.edu_id);
-
-          console.log(`removeIndex-arr: ${removeIndex}`);
 
           // Splice out of array
           profile.education.splice(removeIndex, 1);

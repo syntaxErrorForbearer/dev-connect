@@ -32,7 +32,6 @@ class Register extends React.Component {
     }
   }
   onChange(e){
-    console.log("e.target.name: " + e.target.name);
     this.setState({[e.target.name]: e.target.value})
   }
 
