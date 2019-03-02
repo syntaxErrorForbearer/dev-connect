@@ -32,9 +32,6 @@ export const addPost = postData => dispatch => {
 export const addComment = (postId, commentData) => dispatch => {
   dispatch(clearErrors());
 
-  // undefined here
-  console.log(`addComment - commentData: ${commentData}`);
-
   axios
     .post(`/api/posts/comment/${postId}`, commentData)
     .then(res =>
@@ -94,8 +91,6 @@ export const getPosts = () => dispatch => {
 
 // Delete Post
 export const deletePost = id => dispatch => {
-  // console.dir(`inside deletePost id: ${id}`);
-  // console.log(`inside deletePost id: ${id}`);
   axios
     .delete(`/api/posts/${id}`)
     .then(res =>

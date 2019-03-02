@@ -10,19 +10,6 @@ class CommentItem extends React.Component {
   render () {
     const {comment, postId, auth} = this.props;
 
-    console.log(`inside CommentItem comment.user: ${comment.user}`);
-    console.log(`inside CommentItem auth.user.id: ${auth.user.id}`);
-
-
-    (function(obj){
-       for(var key in obj){
-          console.log(`key: ${key}`);
-       }
-    })(comment)
-    // comment.map(c => {
-    //   console.log(`c:${c}`);
-    // })
-
     return(
       <div className="card card-body mb-3">
         <div className="row">
@@ -47,7 +34,7 @@ class CommentItem extends React.Component {
                 >
                   <i className="fas fa-times" />
                 </button>)
-              : <button className="btn btn-secondary">this button does nothing</button>}
+              : null}
           </div>
         </div>
       </div>

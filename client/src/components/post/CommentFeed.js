@@ -6,8 +6,6 @@ class CommentFeed extends React.Component {
   render () {
     const { comments, postId } = this.props;
 
-    console.log(`inside commentFeed comments: ${comments}`);
-
     return comments.map(comment => (
       <CommentItem key={comment._id} comment={comment} postId={postId} />
     ));

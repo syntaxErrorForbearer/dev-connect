@@ -28,9 +28,6 @@ class CommentForm extends React.Component {
     const {user} = this.props.auth;
     const {postId} = this.props;
 
-    console.log(`inside CommentForm - user: ${user}`);
-    console.log(`inside CommentForm - postId: ${postId}`);
-
     const newComment = {
       // user: user,
       text: this.state.text,

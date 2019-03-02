@@ -45,17 +45,6 @@ class AddExperience extends Component {
       description: this.state.description
     };
 
-    // expData.to =  this.state.disabled ? expData.current : expData.to;
-    // console.log("disabled: ", this.state.disabled);
-    // console.log("expData.to ", expData.to);
-
-    //  // This is a fix from the comments in lecture 59
-    // update* added fix to server side
-    // if (expData.to !== "" && this.state.disabled) {
-    //   expData.to = this.state.current;
-    // this.props.addExperience(expData, this.props.history);
-    // }
-
     this.props.addExperience(expData, this.props.history);
   }
 
